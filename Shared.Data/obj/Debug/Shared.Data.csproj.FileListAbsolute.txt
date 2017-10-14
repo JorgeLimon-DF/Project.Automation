@@ -1,0 +1,5 @@
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Data\bin\Debug\Shared.Data.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Data\bin\Debug\Shared.Data.pdb
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Data\obj\Debug\Shared.Data.csprojResolveAssemblyReference.cache
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Data\obj\Debug\Shared.Data.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Data\obj\Debug\Shared.Data.pdb

@@ -1,0 +1,11 @@
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\Shared.Functions.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\Shared.Functions.pdb
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\Shared.Data.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\WebDriver.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\WebDriver.Support.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\Shared.Data.pdb
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\WebDriver.xml
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\bin\Debug\WebDriver.Support.xml
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\obj\Debug\Shared.Functions.csprojResolveAssemblyReference.cache
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\obj\Debug\Shared.Functions.dll
+C:\Users\gustavo.castro\Desktop\Project.Automation-master\Shared.Functions\obj\Debug\Shared.Functions.pdb

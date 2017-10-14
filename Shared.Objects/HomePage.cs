@@ -17,8 +17,8 @@ namespace Shared.Objects
         public SharedFunctions sharedFunctions;
 
         // Web Elements
-        [FindsBy(How = How.Id, Using = "spinner")]
-        public IWebElement spinner { get; set; }
+        [FindsBy(How = How.CssSelector, Using = "#main-header-wrapper > article > h1")]
+        public IWebElement TextHomePage { get; set; }
 
         #endregion
 
@@ -31,7 +31,17 @@ namespace Shared.Objects
         }
 
         #region Possible actions
-        
+        public bool VerifyTextHome()
+        {
+            if (TextHomePage.Text == "EXPERIENCE THAT WILL GUIDE YOU EVERY STEP OF THE WAY.") 
+            {
+                return true;
+             }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
 
     }

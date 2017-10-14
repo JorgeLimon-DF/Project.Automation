@@ -127,6 +127,7 @@ namespace TestSuite
                 // Load Home page instance and wait for it to finish loading.
                 homePage = new HomePage(browser.Driver);
 
+                /*
                 // Wait for loading spinner to appear and disappear
                 if (!sharedFunctions.waitForObject(homePage.spinner, 1000, 10000))
                 {
@@ -136,6 +137,7 @@ namespace TestSuite
                 {
                     testPassed = false;
                 }
+                */
 
                 // Close Browser
                 browser.Driver.Close();
@@ -160,6 +162,101 @@ namespace TestSuite
                 // Assertion for this individual test
                 Assert.IsTrue(testPassed);
             }
+        }
+
+        private void HomePageDislayedTestScript(int configIndex)
+        {
+            //-------------Variables----------
+
+            //obtener browser y URL
+            string selectedBrowser = configDatatables["DriverConfig"].Rows[configIndex]["Browser"].ToString();
+            string environment = configDatatables["DriverConfig"].Rows[configIndex]["Environment"].ToString();
+            OpenBrowser browser;
+            HomePage HomePage;
+            // Initialize variables
+            IList<string> testLog = new List<string>();
+            string testLogName;
+            string testLogPath;
+            bool testPassed;
+
+            // Initialize variables for this test
+            testLog.Clear();
+            testPassed = true;
+            testLogName = selectedBrowser.ToLower() + "_" + "VerifyTextinHome" + ".txt";
+            string logTitle = "------------------ " + selectedBrowser.ToLower() + " \"VerifyTextinHome\" test " + " ------------------";
+            testLog.Add(logTitle);
+
+            // Open browser
+            browser = new OpenBrowser(environment, selectedBrowser);
+
+            // Verify the correct text is displayed.
+            HomePage = new HomePage(browser.Driver);
+            if (HomePage.VerifyTextHome() == true)
+            {
+                Debug.WriteLine("El texto es desplegado correctamente");
+            }
+            else
+            {
+                Debug.WriteLine("El texto no esta funcionando");
+                testPassed = false;
+            }
+
+            // Close Browser
+            browser.Driver.Close();
+            browser.Driver.Quit();
+
+
+            Assert.IsTrue(testPassed);
+        }
+
+        private void AboutUsPageDisplayedTestScript(int configIndex)
+        {
+            //-------------Variables----------
+
+            //obtener browser y URL
+            string selectedBrowser = configDatatables["DriverConfig"].Rows[configIndex]["Browser"].ToString();
+            string environment = configDatatables["DriverConfig"].Rows[configIndex]["Environment"].ToString();
+            OpenBrowser browser;
+            AboutUsPage AboutUsPage;
+
+            // Initialize variables
+            IList<string> testLog = new List<string>();
+            string testLogName;
+            string testLogPath;
+            bool testPassed;
+
+            // Initialize variables for this test
+            testLog.Clear();
+            testPassed = true;
+            testLogName = selectedBrowser.ToLower() + "_" + "VerifyTextinHome" + ".txt";
+            string logTitle = "------------------ " + selectedBrowser.ToLower() + " \"VerifyTextinHome\" test " + " ------------------";
+            testLog.Add(logTitle);
+
+            // Open browser
+            browser = new OpenBrowser(environment, selectedBrowser);
+
+            // Verify the correct text is displayed.
+            AboutUsPage = new AboutUsPage(browser.Driver);
+
+            AboutUsPage.AboutUsLink.Click();      
+                  
+           
+            if (AboutUsPage.AboutUsVerifyText() == true)
+            {
+                Debug.WriteLine("About us page se despliega correctamente");
+            }
+            else
+            {
+                Debug.WriteLine("About us page no funciona");
+                testPassed = false;
+            }
+
+            // Close Browser
+            browser.Driver.Close();
+            browser.Driver.Quit();
+
+
+            Assert.IsTrue(testPassed);
         }
 
         #endregion
@@ -192,7 +289,19 @@ namespace TestSuite
         {
 
         }
+        [TestMethod]
+        public void HomePageDislayedTest()
+        {
+            HomePageDislayedTestScript(0);
 
+        }
+
+        [TestMethod]
+        public void AboutUsPageDisplayedTest()
+        {
+            AboutUsPageDisplayedTestScript(0);
+
+        }
         #endregion
     }
 }
