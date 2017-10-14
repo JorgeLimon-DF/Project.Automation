@@ -1,19 +1,11 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System;
-using System.Text;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Net.Mail;
-using System.Diagnostics;
+using System.Text;
 using System.Threading;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Dynamic;
-using System.Configuration;
-using System.Drawing;
 
 namespace Shared.Functions
 {

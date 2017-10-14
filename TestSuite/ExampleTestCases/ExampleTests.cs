@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shared.Data;
 using Shared.Functions;
-using System.Data;
 using Shared.Objects;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace TestSuite
