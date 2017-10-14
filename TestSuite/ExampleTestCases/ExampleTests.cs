@@ -142,7 +142,8 @@ namespace TestSuite
                 browser.Driver.Quit();
 
                 // Delete old testLogs
-                testLogPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDi‌​rectory, "..\\..\\TestLogs\\"));
+                testLogPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDi‌​rectory, @".\TestLogs\"));
+                if (!Directory.Exists(testLogPath)) Directory.CreateDirectory(testLogPath);
                 sharedFunctions.deleteTestLogs(testLogPath, testLogName);
 
                 // Add the passed or failed tag to the log file

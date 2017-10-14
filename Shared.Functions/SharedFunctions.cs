@@ -38,8 +38,8 @@ namespace Shared.Functions
             string oldFailedTest = sourceDir + "Failed_" + testName;
 
             // Delete files
-            File.Delete(oldPassedTest);
-            File.Delete(oldFailedTest);
+            if (File.Exists(oldPassedTest)) File.Delete(oldPassedTest);
+            if (File.Exists(oldFailedTest)) File.Delete(oldFailedTest);
         }
 
         public void createTestLog(string testCasePath, string text = "Test Case Execution Steps")
