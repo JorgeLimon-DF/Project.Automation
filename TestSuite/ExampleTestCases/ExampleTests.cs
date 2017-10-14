@@ -108,7 +108,7 @@ namespace TestSuite
                 userType = dataDatatables["ValidLogin"].Rows[x]["User"].ToString();
 
                 // Open browser
-                browser = new OpenBrowser(environment, selectedBrowser);
+                browser = new OpenBrowser(environment, selectedBrowser, @"Drivers");
 
                 // Create an instance of LoginPage and wait for it to load
                 loginPage = new LoginPage(browser.Driver);

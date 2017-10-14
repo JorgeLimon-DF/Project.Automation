@@ -80,6 +80,17 @@
   <ItemGroup>
     <Folder Include="TestLogs\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\geckodriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\IEDriverServer.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
