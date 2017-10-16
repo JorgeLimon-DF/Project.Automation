@@ -1,8 +1,6 @@
-﻿using Shared.Functions;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Diagnostics;
+using Shared.Functions;
 using System.Collections.Generic;
 
 namespace Shared.Objects

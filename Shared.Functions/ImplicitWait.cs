@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using OpenQA.Selenium.Chrome;
 
 namespace Shared.Functions
 {

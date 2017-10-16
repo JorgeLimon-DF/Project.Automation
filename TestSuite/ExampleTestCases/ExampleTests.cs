@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shared.Data;
 using Shared.Functions;
-using System.Data;
 using Shared.Objects;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace TestSuite
@@ -108,7 +107,7 @@ namespace TestSuite
                 userType = dataDatatables["ValidLogin"].Rows[x]["User"].ToString();
 
                 // Open browser
-                browser = new OpenBrowser(environment, selectedBrowser);
+                browser = new OpenBrowser(environment, selectedBrowser, @"Drivers");
 
                 // Create an instance of LoginPage and wait for it to load
                 loginPage = new LoginPage(browser.Driver);
@@ -142,7 +141,8 @@ namespace TestSuite
                 browser.Driver.Quit();
 
                 // Delete old testLogs
-                testLogPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDi‌​rectory, "..\\..\\TestLogs\\"));
+                testLogPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDi‌​rectory, @".\TestLogs\"));
+                if (!Directory.Exists(testLogPath)) Directory.CreateDirectory(testLogPath);
                 sharedFunctions.deleteTestLogs(testLogPath, testLogName);
 
                 // Add the passed or failed tag to the log file

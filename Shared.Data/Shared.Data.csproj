@@ -52,10 +52,5 @@
     <None Include="Config.xlsx" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Drivers\chromedriver.exe" />
-    <Content Include="Drivers\geckodriver.exe" />
-    <Content Include="Drivers\IEDriverServer.exe" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Firefox;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using System.Threading;
-using Shared.Data;
-using Shared.Functions;
-using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium.Support.Extensions;
 
 namespace Shared.Functions
 {
@@ -24,20 +12,23 @@ namespace Shared.Functions
             get; set;
         }
 
-        public OpenBrowser(string url, string browser = "Firefox")
+        public OpenBrowser(string url, string browser = "Firefox", string driverDirectoryLocation = null)
         {
             browser = browser.ToString().ToUpper();
             switch (browser)
             {
                 case "FIREFOX":
-                    FirefoxProfile firefoxProfile = new FirefoxProfile();
-                    firefoxProfile.AcceptUntrustedCertificates = true;
-                    firefoxProfile.SetPreference("dom.max_script_run_time", 0);
-                    Driver = new FirefoxDriver(firefoxProfile);
+                    var service = FirefoxDriverService.CreateDefaultService(driverDirectoryLocation);
+                    var options = new FirefoxOptions();
+                    options.Profile = new FirefoxProfile();
+                    options.Profile.AcceptUntrustedCertificates = true;
+                    options.Profile.SetPreference("dom.max_script_run_time", 0);
+                    Driver = new FirefoxDriver(service, options, System.TimeSpan.FromSeconds(20));
                     Driver.Navigate().GoToUrl(url);
                     break;
                 case "CHROME":
-                    Driver = new ChromeDriver();
+                    Driver = string.IsNullOrEmpty(driverDirectoryLocation)
+                        ? new ChromeDriver() : new ChromeDriver(driverDirectoryLocation);
                     Driver.Manage().Window.Maximize();
                     Driver.Manage().Cookies.DeleteAllCookies();
                     Driver.Navigate().GoToUrl(url);
@@ -47,13 +38,13 @@ namespace Shared.Functions
                     IECapabilities.InitialBrowserUrl = url;
                     IECapabilities.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
                     IECapabilities.IgnoreZoomLevel = true;
-                    Driver = new InternetExplorerDriver(IECapabilities);
+                    Driver = string.IsNullOrEmpty(driverDirectoryLocation)
+                        ? new InternetExplorerDriver(IECapabilities)
+                        : new InternetExplorerDriver(driverDirectoryLocation, IECapabilities);
                     Driver.Manage().Cookies.DeleteAllCookies();
                     Driver.Manage().Window.Maximize();
                     break;
             }
-            //Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
         }
-
     }
 }
